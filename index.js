@@ -2,24 +2,28 @@ import { menuArray } from "./data";
 
 function getMenuHtml() {
   let menuHtml = ``;
-  menuArray.forEach(function (menuItem) {
+  menuArray.forEach(function (item) {
     menuHtml += `
+    <div class="item-info">
       <div class="item-emoji">
-        <p>ITEM EMOJI</p>
+        <p>${item.emoji}</p>
       </div>
 
       <div class="item-details">
-        <h4>ITEM NAME</h4>
-        <p>ITEM INGREDIENTS</p>
-        <h6>ITEM PRICE</h6>
+        <h3>${item.name}</h3>
+        <p>${item.ingredients}</p>
+        <h4>$${item.price}</h4>
       </div>
+    </div>
+
+    <hr>
     `;
   });
   return menuHtml;
 }
 
 function render() {
-  document.getElementById("item-info").innerHTML = getMenuHtml();
+  document.getElementById("menu").innerHTML = getMenuHtml();
 }
 
 render();
