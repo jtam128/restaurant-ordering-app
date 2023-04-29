@@ -51,10 +51,7 @@ body {
   justify-content: center;
 }
 
-.add-btn {
-  border-radius: 50%;
-  border: 1px solid gray;
-  background-color: whitesmoke;
-  width: 30px;
-  height: 30px;
+i {
+  font-size: 30px;
+  cursor: pointer;
 }
