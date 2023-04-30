@@ -4,6 +4,8 @@ const order = document.getElementById("order");
 document.addEventListener("click", function (e) {
   if (e.target.dataset.add) {
     handleAddItem(e.target.dataset.add);
+  } else if (e.target.dataset.remove) {
+    handleRemoveItem(e.target.dataset.remove);
   }
 });
 
@@ -18,6 +20,15 @@ function handleAddItem(itemId) {
   console.log(`/:> orderArr ::`, orderArr); // dbg..
 }
 
+function handleRemoveItem(removedItemId) {
+  const targetItem = orderArr.find((item) => item.id == removedItemId);
+  const itemIndex = orderArr.indexOf(targetItem);
+
+  orderArr.splice(itemIndex, 1);
+
+  renderOrder(orderArr);
+}
+
 function renderOrder() {
   const orderSum = calculateSum(orderArr);
 
@@ -26,8 +37,11 @@ function renderOrder() {
   orderArr.forEach(function (item) {
     individualItemOrder += `
       <p>${item.name}</p>
+       <button
+      class="remove-btn"
+      id="remove-btn"
+      data-remove="${item.id}">Remove</button>
       <p>$${item.price}</p>
-    
       `;
   });
 
