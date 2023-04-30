@@ -13,7 +13,31 @@ function handleAddItem(itemId) {
     return item.id == itemId;
   });
   orderArr.push(addItemToOrderArr);
+  renderOrder(orderArr);
+
   console.log(`/:> orderArr ::`, orderArr); // dbg..
+}
+
+function renderOrder() {
+  let individualItemOrder = "";
+
+  orderArr.forEach(function (item) {
+    individualItemOrder += `
+      <p>${item.name}</p>
+      <small>remove</small>
+      <p>$${item.price}</p>
+      `;
+  });
+
+  let fullOrder = "";
+
+  fullOrder = `
+  <h1>Your Order</h1>
+  <div>
+  <p>${individualItemOrder}</p>
+  </div>
+  `;
+  return (order.innerHTML = fullOrder);
 }
 
 function getMenuHtml() {
@@ -44,8 +68,8 @@ function getMenuHtml() {
   return menuHtml;
 }
 
-function render() {
+function renderMenu() {
   document.getElementById("menu").innerHTML = getMenuHtml();
 }
 
-render();
+renderMenu();
