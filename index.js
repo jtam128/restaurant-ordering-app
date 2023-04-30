@@ -19,13 +19,15 @@ function handleAddItem(itemId) {
 }
 
 function renderOrder() {
+  const orderSum = calculateSum(orderArr);
+
   let individualItemOrder = "";
 
   orderArr.forEach(function (item) {
     individualItemOrder += `
       <p>${item.name}</p>
-      <small>remove</small>
       <p>$${item.price}</p>
+    
       `;
   });
 
@@ -36,8 +38,27 @@ function renderOrder() {
   <div>
   <p>${individualItemOrder}</p>
   </div>
+    <div>
+        <h1>Your Total</h1>
+        <p>$${orderSum}</p>
+      </div>
   `;
   return (order.innerHTML = fullOrder);
+}
+
+function calculateSum(orderArr) {
+  let itemPrice = orderArr.map(function (item) {
+    return item.price;
+  });
+
+  if (itemPrice.length == 0) {
+    return 0;
+  }
+
+  const totalSum = itemPrice.reduce(function (accumulator, currentSum) {
+    return accumulator + currentSum;
+  });
+  return totalSum;
 }
 
 function getMenuHtml() {
