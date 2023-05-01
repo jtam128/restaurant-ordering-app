@@ -23,7 +23,9 @@ payForm.addEventListener("submit", function (e) {
 });
 
 function customerMessage(cusName) {
-  order.innerHTML = `<div class="cus-message">Thanks ${cusName}! Your order is on its way!</div>`;
+  order.innerHTML = `<div class="cus-message">
+  <h1>Thanks, ${cusName}! Your order is on its way!</h1>
+  </div>`;
 }
 
 let orderArr = [];
@@ -53,28 +55,35 @@ function renderOrder() {
 
   orderArr.forEach(function (item) {
     individualItemOrder += `
-      <p>${item.name}</p>
+    <div class="items">
+    <div class="item-name-and-btn">
+   ${item.name}
        <button
       class="remove-btn"
       id="remove-btn"
-      data-remove="${item.id}">Remove</button>
+      data-remove="${item.id}">remove</button>
+    </div>
+    <div class="item-price">
       <p>$${item.price}</p>
+    </div>
+    </div>
       `;
   });
 
   let fullOrder = "";
 
   fullOrder = `
-  <h1>Your Order</h1>
+  <h1 class="order-h1">Your Order</h1>
   <div>
-   <p>${individualItemOrder}</p>
+    <p>${individualItemOrder}</p>
+      <hr>
+   <div class="total-price">
+     <h1>Total Price:</h1>
+     <p>$${orderSum}</p>
+   </div>
   </div>
   <div>
-   <h1>Your Total</h1>
-   <p>$${orderSum}</p>
-  </div>
-  <div>
-   <button data-complete="complete-order">Complete Order</button>
+   <button class="complete-order-btn" data-complete="complete-order">Complete Order</button>
   </div>
   `;
   return (order.innerHTML = fullOrder);
