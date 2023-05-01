@@ -56,3 +56,24 @@ i {
   font-size: 30px;
   cursor: pointer;
 }
+
+#pay-modal {
+  display: none;
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  align-items: center;
+  width: 420px;
+  height: 450px;
+  background-color: whitesmoke;
+  box-shadow: 20px 20px 20px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pay-modal-h1 {
+  font-size: 25px;
+  margin: 30px;
+}

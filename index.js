@@ -6,6 +6,8 @@ document.addEventListener("click", function (e) {
     handleAddItem(e.target.dataset.add);
   } else if (e.target.dataset.remove) {
     handleRemoveItem(e.target.dataset.remove);
+  } else if (e.target.dataset.complete) {
+    document.getElementById("pay-modal").style.display = "flex";
   }
 });
 
@@ -50,12 +52,15 @@ function renderOrder() {
   fullOrder = `
   <h1>Your Order</h1>
   <div>
-  <p>${individualItemOrder}</p>
+   <p>${individualItemOrder}</p>
   </div>
-    <div>
-        <h1>Your Total</h1>
-        <p>$${orderSum}</p>
-      </div>
+  <div>
+   <h1>Your Total</h1>
+   <p>$${orderSum}</p>
+  </div>
+  <div>
+   <button data-complete="complete-order">Complete Order</button>
+  </div>
   `;
   return (order.innerHTML = fullOrder);
 }
