@@ -1,5 +1,6 @@
 import { menuArray } from "./data";
 const order = document.getElementById("order");
+const payForm = document.getElementById("pay-form");
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.add) {
@@ -10,6 +11,20 @@ document.addEventListener("click", function (e) {
     document.getElementById("pay-modal").style.display = "flex";
   }
 });
+
+payForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const payFormData = new FormData(payForm);
+  const cusName = payFormData.get("cus-name");
+
+  document.getElementById("pay-modal").style.display = "none";
+  customerMessage(cusName);
+});
+
+function customerMessage(cusName) {
+  order.innerHTML = `<div class="cus-message">Thanks ${cusName}! Your order is on its way!</div>`;
+}
 
 let orderArr = [];
 function handleAddItem(itemId) {
