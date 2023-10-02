@@ -13,7 +13,7 @@ modalCloseBtn.addEventListener("click", function () {
     addButton.classList.remove("hidden");
   }
   for (const removeButton of menuRemoveButtons) {
-    removeButton.setAttribute("enabled", "");
+    removeButton.removeAttribute("disabled");
   }
 });
 
