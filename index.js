@@ -1,6 +1,21 @@
 import { menuArray } from "./data";
 const order = document.getElementById("order");
 const payForm = document.getElementById("pay-form");
+const modalCloseBtn = document.getElementById("modal-close-btn");
+const payModal = document.getElementById("pay-modal");
+
+modalCloseBtn.addEventListener("click", function () {
+  const menuAddButtons = document.querySelectorAll(".item-add-btn");
+  const menuRemoveButtons = document.querySelectorAll(".remove-btn");
+
+  payModal.style.display = "none";
+  for (const addButton of menuAddButtons) {
+    addButton.classList.remove("hidden");
+  }
+  for (const removeButton of menuRemoveButtons) {
+    removeButton.setAttribute("enabled", "");
+  }
+});
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.add) {
