@@ -5,12 +5,19 @@ body {
   width: 400px;
 }
 
+.container {
+  border: 5px solid lightgray;
+  border-radius: 20px;
+}
+
 #header {
   background: url("images/burger.jpeg");
   background-position: center;
   color: rgb(241, 240, 240);
   padding: 30px;
   font-family: "Smythe", cursive;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 .header-h1,
@@ -66,13 +73,17 @@ i {
   cursor: pointer;
 }
 
+i:hover {
+  opacity: 0.5;
+}
+
 /* Pay Modal */
 #pay-modal {
   display: none;
   position: fixed;
   margin: auto;
   top: 0;
-  bottom: 0;
+  bottom: 400;
   left: 0;
   right: 0;
   flex-direction: column;
@@ -153,6 +164,11 @@ i {
   font-family: Verdana, sans-serif;
 }
 
+.remove-btn:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 /* Customer Message */
 .cus-message {
   margin-top: 30px;
@@ -162,4 +178,8 @@ i {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hidden {
+  display: none;
 }

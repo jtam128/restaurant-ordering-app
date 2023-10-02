@@ -7,8 +7,10 @@ document.addEventListener("click", function (e) {
     handleAddItem(e.target.dataset.add);
   } else if (e.target.dataset.remove) {
     handleRemoveItem(e.target.dataset.remove);
+    setClearAttribute();
   } else if (e.target.dataset.complete) {
     document.getElementById("pay-modal").style.display = "flex";
+    setAttribute();
   }
 });
 
@@ -26,10 +28,13 @@ function customerMessage(cusName) {
   order.innerHTML = `<div class="cus-message">
   <h1>Thanks, ${cusName}! Your order is on its way!</h1>
   </div>`;
+  confetti();
 }
 
 let orderArr = [];
 function handleAddItem(itemId) {
+  document.getElementById("order").classList.remove("hidden");
+
   const addItemToOrderArr = menuArray.find(function (item) {
     return item.id == itemId;
   });
@@ -44,6 +49,10 @@ function handleRemoveItem(removedItemId) {
   const itemIndex = orderArr.indexOf(targetItem);
 
   orderArr.splice(itemIndex, 1);
+
+  if (orderArr.length < 1) {
+    document.getElementById("order").classList.add("hidden");
+  }
 
   renderOrder(orderArr);
 }
@@ -73,6 +82,7 @@ function renderOrder() {
   let fullOrder = "";
 
   fullOrder = `
+  <div id="order-area">
   <h1 class="order-h1">Your Order</h1>
   <div>
     <p>${individualItemOrder}</p>
@@ -84,6 +94,7 @@ function renderOrder() {
   </div>
   <div>
    <button class="complete-order-btn" data-complete="complete-order">Complete Order</button>
+  </div>
   </div>
   `;
   return (order.innerHTML = fullOrder);
@@ -137,3 +148,26 @@ function renderMenu() {
 }
 
 renderMenu();
+
+function setAttribute() {
+  console.log("set Attribute");
+
+  const menuAddButtons = document.querySelectorAll(".item-add-btn");
+  const menuRemoveButtons = document.querySelectorAll(".remove-btn");
+  for (const addButton of menuAddButtons) {
+    addButton.classList.add("hidden");
+  }
+  for (const removeButton of menuRemoveButtons) {
+    removeButton.setAttribute("disabled", "");
+  }
+}
+
+function confetti() {
+  const jsConfetti = new JSConfetti();
+  jsConfetti.addConfetti({
+    emojis: ["🍔", "🍺", "🍕"],
+    confettiNumber: 100,
+    emojiSize: 60,
+  });
+  jsConfetti.addConfetti();
+}

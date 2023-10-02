@@ -12,31 +12,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <title>Restaurant Ordering App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <header id="header">
-        <h1 class="header-h1">Jimmy's Diner</h1>
-        <p class="header-p">The best burgers and pizzas in town.</p>
-    </header>
-    <main>
-        <div id="menu">
-            <!-- menu items here -->
-        </div>
-        <div id="order">
-            <!-- order items here -->
-        </div>
-        <div id="pay-modal">
-            <h1 class="pay-modal-h1">Enter card details</h1>
-            <form id="pay-form">
-                <input class="pay-modal-contents" type="text" name="cus-name" placeholder="Enter your name" required>
-                <input class="pay-modal-contents" type="text" name="card-num" placeholder="Enter card number" required>
-                <input class="pay-modal-contents" type="text" name="cvv" placeholder="Enter CVV" required>
-                <button type="submit" class="pay-modal-btn">Pay</button>
-            </form>
-        </div>
-    </main>
+    <div class="container">
+        <header id="header">
+            <h1 class="header-h1">Jimmy's Diner</h1>
+            <p class="header-p">The best burgers and pizzas in town.</p>
+        </header>
+        <main>
+            <div id="menu">
+                <!-- menu items here -->
+            </div>
+            <div id="order">
+                <!-- order items here -->
+            </div>
+            <div id="pay-modal">
+                <h1 class="pay-modal-h1">Enter card details</h1>
+                <form id="pay-form">
+                    <input class="pay-modal-contents" type="text" name="cus-name" placeholder="Enter your name"
+                        required>
+                    <input class="pay-modal-contents" type="number" name="card-num" placeholder="Enter card number"
+                        required>
+                    <input class="pay-modal-contents" type="number" name="cvv" placeholder="Enter CVV" required>
+                    <button type="submit" class="pay-modal-btn">Pay</button>
+                </form>
+            </div>
+        </main>
+    </div>
     <script src="index.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 </body>
 
 </html>
