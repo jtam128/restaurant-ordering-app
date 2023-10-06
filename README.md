@@ -1,13 +1,16 @@
-# co72e499baf5f48346e5975cf
+# Restaurant Ordering App
+
+The user is able to select and remove items and enter payment information into a pop-up modal
 
 Quick start:
 
 ```
 $ npm install
 $ npm start
-````
+```
 
 Head over to https://vitejs.dev/ to learn more about using vite
+
 ## About Scrimba
 
 At Scrimba our goal is to create the best possible coding school at the cost of a gym membership! 💜
