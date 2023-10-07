@@ -1,6 +1,14 @@
 # Restaurant Ordering App
 
-The user is able to select and remove items and enter payment information into a pop-up modal
+The user is able to select and remove items and enter payment information into a pop-up modal. When the modal shows up, the add and remove buttons are disabled.
+
+## Screenshots
+
+Gif below shows process of placing an order and the modal that appears to enter payment information.
+![pay-gif](/images/pay-gif.gif)
+
+Gif below shows that the user can click out of the modal to change things in their order.
+![click-out-modal](/images/click-out-modal.gif)
 
 Quick start:
 
