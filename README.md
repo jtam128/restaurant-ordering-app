@@ -2,6 +2,8 @@
 
 The user is able to select and remove items and enter payment information into a pop-up modal. When the modal shows up, the add and remove buttons are disabled.
 
+[Live link](https://restaurantordering-jt.netlify.app/)
+
 ## Screenshots
 
 Gif below shows process of placing an order and the modal that appears to enter payment information.
